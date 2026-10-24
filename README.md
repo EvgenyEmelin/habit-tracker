@@ -14,27 +14,36 @@ Backend-сервис для трекера привычек на **FastAPI** с 
 - **Docker Compose** — запуск БД
 - **uvicorn** — ASGI-сервер
 
-## Архитектура
+### Структура проекта
 
-Слоистая структура, каждый слой отвечает за своё:
-
+```text
 habit_backend/
-├── api/ # HTTP-слой: роутеры FastAPI
-│ └── routers/
-│ └── habits.py
-├── service/ # Бизнес-логика
-│ └── habit.py
-├── repositories/ # Доступ к данным (запросы к БД)
-│ └── habit.py
-├── models/ # ORM-модели SQLAlchemy
-│ └── habits.py
-├── schemas/ # Pydantic-схемы (валидация, сериализация)
-│ └── habits.py
-├── db/
-│ └── session.py # engine, SessionLocal, Base, get_db
-├── dependencies.py # DI для FastAPI (get_habit_service)
-├── config.py # Settings через pydantic-settings
-└── main.py # точка входа: FastAPI-приложение
+│
+├── 🔌 api/
+│   └── routers/
+│       └── habits.py          # HTTP-эндпоинты
+│
+├── ⚙️ service/
+│   └── habit.py               # бизнес-логика, commit
+│
+├── 💾 repositories/
+│   └── habit.py               # доступ к БД, flush
+│
+├── 🗄️ models/
+│   └── habits.py              # ORM-модели
+│
+├── 📋 schemas/
+│   └── habits.py              # Pydantic-схемы
+│
+├── 🐘 db/
+│   └── session.py             # engine, SessionLocal, Base
+│
+├── dependencies.py            # DI (get_habit_service)
+├── config.py                  # Settings
+├── main.py                    # точка входа
+├── requirements.txt
+└── .env.example
+```
 
 - **Роутеры** — только HTTP: валидация входа, вызов сервиса, ответ.
 - **Сервисы** — бизнес-правила, границы транзакций (`commit`), исключения домена.
