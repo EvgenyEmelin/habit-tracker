@@ -58,7 +58,7 @@ habit_backend/
 |----------|----------------------------|---------------------------------------|
 | `GET`    | `/api/habits`              | Список привычек                       |
 | `POST`   | `/api/habits`              | Создать привычку (201)                |
-| `PATCH`  | `/api/habits/{habit_id}`   | Обновить `name` / `checked_today`     |
+| `PATCH`  | `/api/habits/{habit_id}`   | Обновить `checked_today`     |
 | `DELETE` | `/api/habits/{habit_id}`   | Удалить привычку (204)                |
 
 Интерактивная документация — Swagger UI: `http://127.0.0.1:8000/docs`.
