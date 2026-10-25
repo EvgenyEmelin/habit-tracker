@@ -13,6 +13,7 @@ Backend-сервис для трекера привычек на **FastAPI** с 
 - **psycopg 3** — драйвер PostgreSQL
 - **Docker Compose** — запуск БД
 - **uvicorn** — ASGI-сервер
+- **Alembic** — Миграции БД
 
 ### Структура проекта
 
