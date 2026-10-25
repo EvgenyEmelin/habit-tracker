@@ -4,18 +4,19 @@ services:
     container_name: habits_db
     restart: unless-stopped
     environment:
-      POSTGRES_USER: habits
-      POSTGRES_PASSWORD: habits
-      POSTGRES_DB: habits
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
     ports:
       - "5432:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U habits -d habits"]
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
       interval: 5s
       timeout: 5s
       retries: 5
 
 volumes:
   pgdata:
+    name: habit_tracker_pgdata

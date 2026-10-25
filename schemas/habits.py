@@ -1,4 +1,4 @@
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, Field
 
 
 class HabitSchema(BaseModel):
@@ -10,7 +10,7 @@ class HabitSchema(BaseModel):
 
 
 class HabitCreateSchema(BaseModel):
-    name: str
+    name: str = Field(min_length=1, max_length=100)
 
 class HabitUpdateSchema(BaseModel):
     checked_today: bool
