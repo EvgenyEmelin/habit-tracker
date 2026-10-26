@@ -15,7 +15,7 @@ class HabitRepository:
         return self.db.get(HabitORM, habit_id)
 
     def create(self, name: str) -> HabitORM:
-        new_habit = HabitORM(name=name, checked_today=False)
+        new_habit = HabitORM(name=name)
         self.db.add(new_habit)
         self.db.flush()
         return new_habit
