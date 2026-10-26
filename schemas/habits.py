@@ -17,3 +17,4 @@ class HabitCreateSchema(BaseModel):
 
 class HabitUpdateSchema(BaseModel):
     name: str | None = None
+
