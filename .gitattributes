@@ -1,0 +1,18 @@
+# Нормализуем все текстовые файлы в репозитории к LF
+* text=auto eol=lf
+
+# Явно фиксируем LF для того, что исполняется в Linux
+*.sh        text eol=lf
+Dockerfile  text eol=lf
+*.py        text eol=lf
+*.ini       text eol=lf
+*.toml      text eol=lf
+*.yml       text eol=lf
+*.yaml      text eol=lf
+*.md        text eol=lf
+*.sql       text eol=lf
+
+# Бинарные — не трогаем
+*.png       binary
+*.jpg       binary
+*.ico       binary
