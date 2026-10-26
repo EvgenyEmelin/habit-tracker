@@ -71,26 +71,27 @@ habit_backend/
 curl -X POST http://127.0.0.1:8000/api/habits \
   -H "Content-Type: application/json" \
   -d '{"name": "Читать 20 минут"}'
-
-Список
-
+```
+**Список**
+```bash
 curl http://127.0.0.1:8000/api/habits
+```
+**Отметить выполненной**
 
-Отметить выполненной
-
-bash
+```bash
 curl -X PATCH http://127.0.0.1:8000/api/habits/<habit_id> \
   -H "Content-Type: application/json" \
   -d '{"checked_today": true}'
+```
+**Снять отметку**
 
-Снять отметку
-
-bash
+```bash
 curl -X PATCH http://127.0.0.1:8000/api/habits/<habit_id> \
   -H "Content-Type: application/json" \
   -d '{"checked_today": false}'
+```
+**Удалить**
 
-Удалить
-
-bash
+```bash
 curl -X DELETE http://127.0.0.1:8000/api/habits/<habit_id>
+```
